@@ -1,48 +1,56 @@
 // 1. Imports
 import type { NextPage } from 'next';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useAppDispatch } from 'core/hook';
+import { login } from 'core/slices/authSlice';
+import AuthService from 'core/services/AuthServices';
 
-import Head from 'next/head';
-import Image from 'next/image'
+import { UniTag, MainButton } from 'components/ui/common';
+import { ImageFon } from 'components/ui/graphics';
+import styles from 'styles/module/pages/Home.module.scss';
 
 // 2. Component
 const Home: NextPage = () => {
   // Variables
-  const styles = {
-    wrapper: {
-      fontFamily: 'Montserrat',
-      paddingTop: 50,
-      paddingLeft: 50
-    },
-    row: {
-      display: 'flex',
-      alignItems: 'center'
-    },
-    rowTitle: {
-      marginLeft: 25
-    },
-    themeColor: {
-      color: '#AF48F4'
-    }
-  };
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const checkAuth = async () => {    
+    if(localStorage.accessToken) {
+      try {
+        const response = await AuthService.refresh();  
+        localStorage.accessToken = response.data.accessToken;
+        dispatch(login(response.data.user)); 
+        router.push('/profile')
+      } 
+      catch (e) {
+          console.error(e.response.data);
+      }   
+    } 
+  }
+  
+  useEffect(()  => {
+    checkAuth();
+  }, [checkAuth])
 
   // Return
   return (
-    <div style={styles.wrapper}>
-      <Head>
-        <title>Tween | Gennadiy Zarvigorov</title>
-      </Head>
-      
-      <div style={styles.row}>
-        <Image 
-          src="/apple-touch-icon.png"
-          alt="Logo"
-          width={180}
-          height={180} />
-
-        <h1 style={styles.rowTitle}>
-          Tween | Front-End часть от <span style={styles.themeColor}>Gennadiy Zarvigorov</span>.
-        </h1>
+    <div>
+      <div className={styles.offer}>
+        <UniTag text={'Начни свой блог с Tween!'} />
+        <p>
+          В нашем приложении ты cможешь поделиться информацией
+          о себе, и своей жизни, вместе с другими пользователями в 
+          режиме реального времени. Быстро, просто и легко!
+        </p>
+        <MainButton
+          text={'Начать с Tween'}
+          onClick={() => localStorage.checkRegistration ? router.push('/signin') : router.push('/signup')}
+        /> 
       </div>
+      <ImageFon />
     </div>
   );
 }

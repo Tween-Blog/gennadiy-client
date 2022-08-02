@@ -1,0 +1,41 @@
+@import 'styles/global/vars';
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    .logo {
+        color: $refColor;
+        font: 400 24px 'Open Sans', sans-serif; 
+        line-height: 33px;
+    }
+    li {
+        margin-left: 30px;
+    }
+    a {
+        color: $greyColor;
+        font-size: 16px;
+        &.active,
+        &:hover
+            {
+                color: $refColor;  
+                .navProfile {
+                    width: 30px;
+                    height: 30px;
+                    background:  url("/navigation/userActive.svg") no-repeat center / cover;
+                }
+            }
+    }
+}
+
+.links {
+    display: flex;
+    align-items: center;  
+}
+
+.navProfile {
+    width: 30px;
+    height: 30px;
+    background:  url("/navigation/user.svg") no-repeat center / cover;
+}

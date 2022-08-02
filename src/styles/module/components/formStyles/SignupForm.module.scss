@@ -1,0 +1,26 @@
+.signup {
+    width: 495px;
+    input {
+        margin-top: 20px;
+    }
+
+    input:nth-child(2) {
+        width: 49.5%;
+        margin-right: 4%;
+    }
+
+    input:nth-child(3) {
+        width: 46.5%;
+    } 
+
+    button {
+        width: 324px;
+        margin-bottom: 20px;
+    }
+}
+
+.infovalidation {
+    font-size: 11px;
+    margin: 10px 0 30px;
+    font-weight: 500;
+}

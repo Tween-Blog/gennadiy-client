@@ -1,0 +1,26 @@
+@import 'styles/global/vars';
+
+.mainButton {
+	border: none;
+	padding: 10px 0px 10px;
+    background: $themeColor;
+    color: $refColor;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+    border-radius: 6.44px;
+	border: 1px solid $themeColor;
+	cursor: pointer;
+	transition: 0.3s;
+	&:hover {
+		background: $clickColor;
+		border: 1px solid $blackColor;
+		box-shadow: 0px 10.3077px 32.2115px rgba(0, 0, 0, 0.1);
+		transition: 0.3s;
+	}
+	&:focus {
+		background: $focusColor;
+		transition: 0.3s;
+	}
+}

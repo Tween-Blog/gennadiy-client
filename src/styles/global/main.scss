@@ -1,0 +1,50 @@
+@import 'vars';
+@import "specification";
+@import "section";
+
+/*Generic*/
+html,
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+ 	font-family: 'Montserrat';
+}
+
+.container {	
+	width: 1230px;
+	margin: 0 auto;
+}
+
+.next-layout {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+// #__next {
+// 	height: 100%;
+// }
+
+section {
+    flex: 1 1 auto;
+	padding-top: 50px;
+}
+
+header {
+	padding: 19px 0;
+	background-color: $blackColor;
+	z-index: 30;
+}
+
+footer {
+	padding: 60px 0;
+	text-align: center;
+	background-color: $blackColor;	
+	color: $greyColor;	
+	z-index: 30;
+	h1 {	
+		font: 400 24px 'Open Sans', sans-serif;
+		color: $greyColor;
+	}
+}

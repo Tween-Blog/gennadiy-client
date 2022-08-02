@@ -1,0 +1,16 @@
+/*Section*/
+
+.section {
+    &-home,
+    &-404 {
+        background:  url("/section/background.png") no-repeat center / cover;
+    }
+};
+
+.section-home {
+	padding-top: 165px;
+}
+
+.section-404 {
+	position: relative;
+}

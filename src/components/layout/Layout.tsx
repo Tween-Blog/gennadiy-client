@@ -1,0 +1,29 @@
+// 1. Imports
+import { FC, ReactNode } from 'react';
+import { useRouter } from 'next/router';
+
+import { Header, Footer } from '@/layout';
+
+// 2. Types
+type LayoutType = { children: ReactNode };
+
+// 3. Component
+const Layout: FC<LayoutType> = ({ children }) => {
+    const router = useRouter();
+    const sectionName: string = router.asPath !== '/' ? router.asPath.slice(1).split('?')[0] : 'home';
+    
+    return (
+        <div className="next-layout">
+            <Header />
+            <section className={'section-' + sectionName}>
+                <div className="container"> 
+                    {children} 
+                </div>
+            </section>
+            <Footer />
+        </div>
+    )
+}
+
+// 4. Export
+export default Layout;

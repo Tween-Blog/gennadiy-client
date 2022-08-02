@@ -1,0 +1,31 @@
+@import 'styles/global/vars';
+
+.textfield {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #DFDFDF;
+    background-color: $refColor !important;
+    transition: 0.3s; 
+}
+  
+.textfield:focus {
+    border: 1px solid $focusColor;
+}
+
+.textfield.wrong { 
+    border-color: $wrongColor; 
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.eye {
+	width: 20px;
+	height: 17px;
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	cursor: pointer;
+}

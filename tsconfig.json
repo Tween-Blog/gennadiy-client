@@ -17,13 +17,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "baseUrl": "src/",
+    "paths": {
+      "@/layout*": ["components/layout/*", "components/layout"]
+    },
     "jsx": "preserve"
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/ui/common/MainButton.jsx", "src/components/ui/form/Fields.jsx"  ],
   "exclude": [
     "node_modules"
   ]

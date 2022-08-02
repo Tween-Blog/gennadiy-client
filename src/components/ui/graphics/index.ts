@@ -1,0 +1,2 @@
+export { ImageFon } from './ImageFon';
+
