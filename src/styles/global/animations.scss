@@ -16,10 +16,7 @@
 }
 
 @mixin rotationSpeed($speed) {
-	animation-name: rotation;
-    animation-duration: $speed;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation: rotation $speed infinite linear;
 }
 
 @mixin placeImg( $width, $height, $top, $left) { 

@@ -1,34 +1,49 @@
 // 1. Imports
 import Link from 'next/link';
+import { FC , ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
-import styles from 'styles/module/components/Navbar.module.scss';
+import AuthService from '@/services/AuthServices';
+import { useAppDispatch, useAppSelector } from 'core/hook';
+import { logout } from 'core/store/slices/authSlice';
+import { loader } from 'core/store/slices/loaderSlice';
 
-// 2.Types
-interface INavigation {
-    id: number;
-    content: any;
-    path: string
-}
+import { INavigation } from 'interfaces/IUi';
+import styles from '@/componentsStyle/Navbar.module.scss';
 
-// 3. Component
-const Navbar: React.FC = () => {
-    // Variables
+// 2. Component
+const Navbar: FC = () => {
     const { pathname } = useRouter();
 
-    const navProfile = {
-        n: <div className={styles.navProfile}></div>
-    }
+    const dispatch = useAppDispatch();
+    const isAuth = useAppSelector(state => state.auth.isAuth);
 
+    const navProfile: ReactNode = <div className={styles.navProfile}></div>
     const navigation: INavigation[] = [
-        { id: 1, content: 'Главная', path: '/'},
-        { id: 2, content: 'Пользователи', path: '/usersList'},
-        { id: 3, content: navProfile.n, path: '/profile'}
+        { id: 1, content: 'Главная', path: '/' },
+        { id: 2, content: 'Пользователи', path: '/usersList' },
+        { id: 3, content: navProfile, path: '/profile' },
     ]
 
+    const handleLogout = async () => {  
+        try {
+            dispatch(loader());
+            const response = await AuthService.logout();  
+            localStorage.removeItem('accessToken'); 
+            dispatch(logout());  
+        } 
+        catch (e) {
+            console.error(e.response.data);
+        }  
+        finally {
+            dispatch(loader()); 
+        }  
+    }
+     
     // Return
     return (
         <nav className={styles.nav}>
+
             <Link href="/">
                  <a className={styles.logo}>
                     Tween
@@ -36,18 +51,35 @@ const Navbar: React.FC = () => {
             </Link>
             <ul className={styles.links}>
                 {navigation.map(( {id, content, path}) => (
-                    <li key={id}>
+
+                    <li 
+                        key={id}
+                        className={styles.link}
+                    >
                         <Link  href={path}>
-                            <a className={pathname === path ? styles.active : null}>
+                            <a className={
+                                pathname === path? styles.active :
+                                !isAuth && content === 'Главная'? styles.active : null
+                            }>
                                 {content}
                             </a>
                         </Link>
                     </li>
                 ))}
+
+                    <li className={styles.link}>
+                        <div 
+                            className={isAuth ? styles.navLogout : null}
+                            onClick={() => handleLogout()}
+                        >
+                        </div>
+                    </li>
+                    
             </ul>
+            
         </nav>
     )
 }
 
-// 4. Export
+// 3. Export
 export { Navbar };

@@ -1,4 +1,4 @@
-@import 'styles/global/vars';
+@import 'styles/global/colors';
 
 .nav {
     display: flex;
@@ -10,7 +10,7 @@
         font: 400 24px 'Open Sans', sans-serif; 
         line-height: 33px;
     }
-    li {
+    .link {
         margin-left: 30px;
     }
     a {
@@ -21,8 +21,6 @@
             {
                 color: $refColor;  
                 .navProfile {
-                    width: 30px;
-                    height: 30px;
                     background:  url("/navigation/userActive.svg") no-repeat center / cover;
                 }
             }
@@ -38,4 +36,14 @@
     width: 30px;
     height: 30px;
     background:  url("/navigation/user.svg") no-repeat center / cover;
+}
+
+.navLogout {
+    width: 30px;
+    height: 30px;
+    background:  url("/navigation/navLogout.svg") no-repeat center / cover;
+    cursor: pointer;
+    &:hover {
+        background:  url("/navigation/navLogoutActive.svg") no-repeat center / cover;
+    }
 }

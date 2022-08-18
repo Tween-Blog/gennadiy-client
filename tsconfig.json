@@ -19,7 +19,17 @@
     "isolatedModules": true,
     "baseUrl": "src/",
     "paths": {
-      "@/layout*": ["components/layout/*", "components/layout"]
+      "@/layout*": ["components/layout/*", "components/layout"],
+      "@/uiForm*": ["components/ui/form*", "components/ui/form"],
+      "@/uiGlobal*": ["components/ui/global*", "components/ui/global"],
+      "@/uiGraphics*": ["components/ui/graphics*", "components/ui/graphics"],
+      
+      "@/helpers*": ["core/helpers*", "core/helpers"],
+      "@/services*": ["core/services*", "core/services"],
+      "@/slices*": ["core/slices*", "core/slices"],
+
+      "@/componentsStyle*": ["styles/module/components*", "styles/module/components"],
+      "@/pagesStyle*": ["styles/module/pages*", "styles/module/pages"]
     },
     "jsx": "preserve"
   },
@@ -27,7 +37,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/ui/common/MainButton.jsx", "src/components/ui/form/Fields.jsx"  ],
+, "src/components/ui/global/MainButton.jsx", "src/components/ui/form/Fields.jsx"  ],
   "exclude": [
     "node_modules"
   ]

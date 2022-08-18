@@ -1,6 +1,8 @@
-@import 'vars';
+@import 'colors';
 @import "specification";
 @import "section";
+@import "fonts";
+@import "ui";
 
 /*Generic*/
 html,
@@ -22,10 +24,6 @@ body {
 	height: 100vh;
 }
 
-// #__next {
-// 	height: 100%;
-// }
-
 section {
     flex: 1 1 auto;
 	padding-top: 50px;
@@ -43,8 +41,9 @@ footer {
 	background-color: $blackColor;	
 	color: $greyColor;	
 	z-index: 30;
-	h1 {	
-		font: 400 24px 'Open Sans', sans-serif;
-		color: $greyColor;
-	}
+}
+
+.copyright {
+	font: 400 24px 'Open Sans', sans-serif;
+	color: $greyColor;
 }

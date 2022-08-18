@@ -1,5 +1,5 @@
 // OptionsTField
-interface IFieldType {
+type FieldType = {
     [key: string]: {
         type: string;
         placeholder: string; 
@@ -7,7 +7,7 @@ interface IFieldType {
     }
 }
 
-export const optionsTField:IFieldType = {
+export const optionsTField: FieldType = {
     text: {
         type: 'text',
         placeholder: 'Ник', 

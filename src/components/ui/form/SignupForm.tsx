@@ -1,18 +1,24 @@
 // 1. Imports
-import React , { useState, useRef } from 'react';
+import { FC, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import validateForm from 'core/helpers/validateForm';
-import AuthService from 'core/services/AuthServices';
+import Swal from 'sweetalert2';
+import { useAppDispatch } from 'core/hook';
+import { loader } from 'core/store/slices/loaderSlice';
 
-import { MainButton } from 'components/ui/common';
+import validateForm from '@/helpers/validateForm';
+import AuthService from '@/services/AuthServices';
+
+import { MainButton } from '@/uiGlobal';
 import { TextField } from './TextField';
+import { PasswordField } from './PasswordField';
 
-import styles from 'styles/module/components/formStyles/SignupForm.module.scss';
+import styles from '@/componentsStyle/formStyles/SignupForm.module.scss';
 
 // 2. Component
-const SignupForm: React.FC = ( {} ) => {
+const SignupForm: FC = ( {} ) => {
     // Сonstants
     const router = useRouter();
+    const dispatch = useAppDispatch();
 
     const  [nickValue, setNickValue] = useState<string>(''),
            [passwordValue, setPasswordValue] = useState<string>(''),
@@ -24,8 +30,10 @@ const SignupForm: React.FC = ( {} ) => {
     
     const handleSubmit = async () => {      
         try {
+            dispatch(loader());
+
             const validateResult = validateForm([inputNickRef, inputEmailRef, inputPasswordRef], {
-                validatePassword: true
+                validatePassword: true,
             });
 
             if(validateResult) {
@@ -33,15 +41,26 @@ const SignupForm: React.FC = ( {} ) => {
                     nick: nickValue,
                     email: emailValue,
                     password: passwordValue,
-                }); 
-                localStorage.checkRegistration = 'true';
-                router.push('/signin');      
-                // console.log(response);
-            }
-        } catch (e) {
+                });
+                if(!response.data.error) {
+                    localStorage.checkRegistration = 'true';
+                    router.push('/signin');
+                } else {
+                    Swal.fire({
+                        title: response.data.message,
+                        heightAuto: false
+                    })
+                };
+            };
+        } 
+        catch (e) {
             console.error(e.response.data);
-        }    
+        }
+        finally {
+            dispatch(loader());
+        };    
     }
+    
     // Return
     return (
         <form
@@ -52,18 +71,20 @@ const SignupForm: React.FC = ( {} ) => {
             <TextField
                 className={styles.nickInput}
                 value={nickValue}
+                otherClass="formInput"
                 onChange={e => setNickValue(e.target.value)}
                 ref={inputNickRef}
             />
-            <TextField
-                varietyTField="password"
+            <PasswordField 
                 value={passwordValue}
+                otherClass="formInput inputPass"
                 onChange={e => setPasswordValue(e.target.value)}
                 ref={inputPasswordRef}
             />
             <TextField
-                varietyTField="email"
+                variety="email"
                 value={emailValue}
+                otherClass="formInput inputMail"
                 onChange={e => setEmailValue(e.target.value)}
                 ref={inputEmailRef}
             />
@@ -72,7 +93,9 @@ const SignupForm: React.FC = ( {} ) => {
                 цифру и один специальный символ
             </p> 
             <MainButton
+                type="submit"
                 text={'Зарегистрироваться'}
+                otherClass="signupBtn"
                 onClick={() => handleSubmit()}
             /> 
         </form>
@@ -80,4 +103,4 @@ const SignupForm: React.FC = ( {} ) => {
 }
 
 // 3. Export
-export { SignupForm };
+export default SignupForm;

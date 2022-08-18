@@ -1,15 +1,15 @@
 import {  AxiosResponse } from 'axios';
 import api from '../http';
 
-import { IRegistration, IAuthorization, AuthResponse } from './IAuthService';
+import { IRegistration, IAuthorization, AuthResponse } from 'interfaces/IAuthService';
 
 export default class AuthService {   
-    static async registration(dataInput: IRegistration): Promise<AxiosResponse> {    
-        return api.post('/registration', dataInput)
+    static async registration(data: IRegistration): Promise<AxiosResponse> {    
+        return api.post('/registration', data)
     }
 
-    static async login(dataInput: IAuthorization): Promise<AxiosResponse<AuthResponse>> {
-        return api.post('/login', dataInput)
+    static async login(data: IAuthorization): Promise<AxiosResponse<AuthResponse>> {
+        return api.post('/login', data)
     }
 
     static async logout(): Promise<void> {

@@ -1,8 +1,8 @@
-// 1. Imports
+import { FC } from 'react';
 import { Navbar } from '@/layout';
 
 // 2. Component
-const Header: React.FC = () => {
+const Header: FC = () => {
     return (
         <header>
             <div className="container">

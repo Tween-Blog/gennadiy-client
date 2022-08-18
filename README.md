@@ -1,4 +1,4 @@
-# Tween | Ветка для разработки
+# Tween | Основная ветка
 Front-End часть от Gennadiy Zarvigorov.
 ---
 Этапы разработки:

@@ -1,4 +1,4 @@
-@import 'styles/global/vars';
+@import 'styles/global/colors';
 
 .frameSignin {
     width: 425px;
@@ -11,13 +11,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    input {
-        margin-top: 20px;
-    }
-    button {
-        width: 200px;
-        margin: 20px auto 20px;
-    }
 }
 
 .toSignup {

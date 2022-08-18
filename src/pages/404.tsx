@@ -1,7 +1,7 @@
 // 1. Imports
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { ImageFon } from 'components/ui/graphics';
+// import { ImageFon } from 'components/ui/graphics';
 
 import styles from 'styles/module/pages/404.module.scss';
 
@@ -26,13 +26,13 @@ const Error: React.FC = () => {
                     Ууупс, что-то пошло не так... 
                 </p>     
             </div>
-            <ImageFon
+            {/* <ImageFon
                 varietyStar={'errorStar'} 
             />
             <ImageFon
                 srcImage={'gear.svg'}
                 varietyStar={'errorGear'} 
-            />
+            /> */}
         </div>
     )
 }; 

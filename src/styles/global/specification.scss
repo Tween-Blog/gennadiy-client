@@ -5,16 +5,23 @@
 	padding: 0;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	transition: 0.3s ease;
 }
 
 *:before, *:after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
     outline: none;
+	transition: 0.3s ease;
 }
 
 *:focus {
 	outline: none;
+	transition: 0.3s ease;
+}
+
+*:hover {
+	transition: 0.3s ease;
 }
 
 h1 {

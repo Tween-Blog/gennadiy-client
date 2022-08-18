@@ -1,43 +1,49 @@
 // 1. Imports
-import AuthService from 'core/services/AuthServices';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'core/hook';
 
-import { MainButton } from 'components/ui/common';
-import { logout } from 'core/slices/authSlice';
+import { useAppSelector } from 'core/hook';
+import UserService from '@/services/UsersServices';
+
+import { Avatar } from '@/uiGlobal';
+import { MainButton } from '@/uiGlobal';
 
 // 2. Component
 const Profile = () => {
   // Variables
   const router = useRouter();
-  const dispatch = useAppDispatch();
-  const isAuth = useAppSelector(state => state.auth.isAuth);
+
+  const isAuth = useAppSelector(state => state.auth.isAuth),
+        user = useAppSelector(state =>state.auth.user);
+        // console.log(user)
 
   useEffect(()  => {
     !isAuth ? router.push('/') : null
   }, [isAuth, router])
 
-  const handleSubmit = async () => {  
-    try {
-      const response = await AuthService.logout();  
-      localStorage.removeItem('accessToken'); 
-      dispatch(logout());
-      router.push('/');
-    } 
-    catch (e) {
-        console.error(e.response.data);
-    }    
+  const handleSubmit = async () => {
+     console.log('users');
+    // const apiUrl = 'https://tween-api.herokuapp.com/api';
+   
+    // fetch(apiUrl + '/users', {
+    // headers: {
+    //     'Authorization': `Bearer ${localStorage.getItem('accessToken')}` 
+    // },
+    // method: 'GET',
+    // }).then(response => response.json())
+    // .then(json => console.log(json));
   }
-
   // Return
   return (
     <div>
-        Profile
-        <MainButton
-              text={'Выйти'}
-              onClick={() => handleSubmit()}
-          /> 
+      <Avatar
+        nick={user['nick']}
+      />
+      <MainButton
+        type="submit"
+        text={'Users'}
+        onClick={() => handleSubmit()}
+      />
     </div>
   );
 }

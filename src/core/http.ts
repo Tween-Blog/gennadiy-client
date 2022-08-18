@@ -9,10 +9,12 @@ const api = axios.create({
     baseURL: apiUrl
 })
 
+
  // Interceptor on request
 api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`
     return config;
 })
+
 
 export default api;

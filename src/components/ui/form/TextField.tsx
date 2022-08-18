@@ -1,20 +1,23 @@
 // 1. Imports 
-import React from 'react';
-import { optionsTField } from 'components/ui/form/optionsTField';
+import { forwardRef } from 'react';
 
-import styles from 'styles/module/components/formStyles/TextField.module.scss';
+import { optionsTField } from '@/uiForm/optionsTField';
+import { IFieldProps } from 'interfaces/IUi';
 
-// 2. Types
-interface FieldProps extends React.ComponentPropsWithoutRef<'input'> {
-    varietyTField?: string;
-}
+import styles from '@/componentsStyle/formStyles/TextField.module.scss';
 
-const TextField = React.forwardRef<HTMLInputElement, FieldProps>(
-    ({  varietyTField = 'text', ...inputProps }, ref) => ( 
+// 2. Component
+const TextField = forwardRef<HTMLInputElement, IFieldProps>(
+    ({  
+        variety = 'text',
+        otherClass = '',
+        ...inputProps 
+    }, ref) => ( 
+        
         <input 
-            {...optionsTField[varietyTField]}
+            {...optionsTField[variety]}
             {...inputProps}
-            className={styles.textfield}
+            className={`${styles.textfield} ${otherClass}`}
             ref={ref}
             required
         />
@@ -23,5 +26,4 @@ const TextField = React.forwardRef<HTMLInputElement, FieldProps>(
 
 // 3. Export
 TextField.displayName = 'TextField';
-
 export { TextField };

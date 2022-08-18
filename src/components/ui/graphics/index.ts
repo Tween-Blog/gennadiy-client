@@ -1,2 +1,3 @@
-export { ImageFon } from './ImageFon';
+export { BackImage } from './BackImage';
+export { Loader } from './Loader';
 

@@ -1,4 +1,4 @@
-// 1. Imports
+/// 1. Imports
 import { MutableRefObject } from 'react';
 
 import Swal from 'sweetalert2';
@@ -13,8 +13,8 @@ type ValidateOptionsType = {
 // 3. Functions
 const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOptions?: ValidateOptionsType) => {
     // Default options values
-    // let isValidateEmptyFields: boolean = true,
-        let isValidateEmail: boolean = true, 
+    let isValidateEmptyFields: boolean = true,
+        isValidateEmail: boolean = true, 
         isValidatePassword: boolean = false;
 
     const swalOptions = {
@@ -24,8 +24,8 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
     
     // Check on validate options in arguments
     if(validateOptions) {
-        // const validateEmptyFields = validateOptions.validateEmptyFields;
-        // if(validateEmptyFields !== undefined) isValidateEmptyFields = validateEmptyFields;
+        const validateEmptyFields = validateOptions.validateEmptyFields;
+        if(validateEmptyFields !== undefined) isValidateEmptyFields = validateEmptyFields;
 
         const validateEmail = validateOptions.validateEmail;
         if(validateEmail !== undefined) isValidateEmail = validateEmail;
@@ -48,10 +48,13 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
     for(let i = 0; i < inputs.length; i++) {
         // Input Data
         const input: HTMLInputElement = inputs[i].current;
-        const inputValue:string = input.value;
+        const inputValue: string = input.value;
         const inputType: string = input.getAttribute('type');
+        const inputName: string = input.getAttribute('name');
+
         const isRequired: boolean = input.getAttribute('required') !== null;
 
+        
         // Voids
         const passwordIncorrect = (): void => {
             input.classList.add('wrong');
@@ -63,9 +66,9 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
             });
             validateResult = false;
         }
-         
+
         // Validate empty fields
-        if( isRequired && inputValue === '') {
+        if(isValidateEmptyFields && isRequired && inputValue === '') {
             input.classList.add('wrong');
             Swal.fire({
                 title: 'Заполните все поля ввода!',
@@ -91,7 +94,7 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
         }
 
         // Validate password
-        if(isValidatePassword && inputType === 'password' && !passwordRegex.test(inputValue)) {
+        if(isValidatePassword && inputName  === 'password' && !passwordRegex.test(inputValue)) {
             passwordIncorrect();
             break;
         }
@@ -107,3 +110,4 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
 
 // 4. Export
 export default validateForm;
+

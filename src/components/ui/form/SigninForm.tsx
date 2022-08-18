@@ -1,23 +1,24 @@
 // 1. Imports
-import React , { useState, useRef } from 'react';
+import { FC, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 
-import { useAppDispatch, useAppSelector } from 'core/hook';
-import { login } from 'core/slices/authSlice';
-import validateForm from 'core/helpers/validateForm';
-import AuthService from 'core/services/AuthServices';
+import { useAppDispatch } from 'core/hook';
+import { login } from 'core/store/slices/authSlice';
+import { loader } from 'core/store/slices/loaderSlice';
+import validateForm from '@/helpers/validateForm';
+import AuthService from '@/services/AuthServices';
 
-import { MainButton } from 'components/ui/common';
-import { TextField } from './TextField';
-import { PasswordField } from './PasswordField';
+import { MainButton }  from '@/uiGlobal/global';
+import { TextField } from '@/uiForm/TextField';
+import { PasswordField } from '@/uiForm/PasswordField';
 
 // 2. Component
-const SigninForm: React.FC = ( {} ) => {
+const SigninForm: FC = ( {} ) => {
+    // Variebles
     const router = useRouter();
     const dispatch = useAppDispatch();
-    const us = useAppSelector(state => state.auth)
-
+   
     const  [passwordValue, setPasswordValue] = useState<string>(''),
            [emailValue, setEmailValue] = useState<string>('');
 
@@ -26,8 +27,10 @@ const SigninForm: React.FC = ( {} ) => {
 
     const handleSubmit = async () => {      
         try {
+            dispatch(loader());
+            
             const validateResult = validateForm([inputEmailRef, inputPasswordRef], {
-                validatePassword: true
+                validatePassword: false,
             });
 
             if(validateResult) {
@@ -35,18 +38,24 @@ const SigninForm: React.FC = ( {} ) => {
                     email: emailValue,
                     password: passwordValue,
                 });   
-                if(response.data.error) {
+                if(!response.data.error) {
+                    localStorage.accessToken = response.data.accessToken;
+                    dispatch(login(response.data.user));
+                    router.push('/profile'); 
+                } else {
                     Swal.fire(response.data.message);
                     return;
-                }  
-                localStorage.accessToken = response.data.accessToken;
-                dispatch(login(response.data.user));
-                router.push('/profile'); 
-            }
-        } catch (e) {
+                };
+            };
+        } 
+        catch (e) {
             console.error(e.response.data);
+        }
+        finally {
+            dispatch(loader());
         }    
     }
+    
     // Return
     return (
         <form
@@ -54,18 +63,22 @@ const SigninForm: React.FC = ( {} ) => {
             noValidate
         >
             <TextField
-                varietyTField="email"
+                variety="email"
                 value={emailValue}
+                otherClass="formInput"
                 onChange={e => setEmailValue(e.target.value)}
                 ref={inputEmailRef}
             />
             <PasswordField 
                 value={passwordValue}
+                otherClass="formInput"
                 onChange={e => setPasswordValue(e.target.value)}
                 ref={inputPasswordRef}
             />
             <MainButton
+                type="submit"
                 text={'Войти'}
+                otherClass="signinBtn"
                 onClick={() => handleSubmit()}
             /> 
         </form>
@@ -73,4 +86,4 @@ const SigninForm: React.FC = ( {} ) => {
 }
 
 // 3. Export
-export { SigninForm };
+export default SigninForm;

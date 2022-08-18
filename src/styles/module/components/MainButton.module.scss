@@ -1,4 +1,4 @@
-@import 'styles/global/vars';
+@import 'styles/global/colors';
 
 .mainButton {
 	border: none;
@@ -12,7 +12,6 @@
     border-radius: 6.44px;
 	border: 1px solid $themeColor;
 	cursor: pointer;
-	transition: 0.3s;
 	&:hover {
 		background: $clickColor;
 		border: 1px solid $blackColor;
@@ -21,6 +20,5 @@
 	}
 	&:focus {
 		background: $focusColor;
-		transition: 0.3s;
 	}
 }

@@ -1,23 +1,21 @@
 // 1. Imports 
-import React from 'react';
 import Image from 'next/image';
-import { useState} from 'react';
-// import { EyeTF } from './EyeTF';
+import { forwardRef, useState } from 'react';
 
+import { IFieldProps }  from 'interfaces/IUi';
 
-import styles from 'styles/module/components/formStyles/TextField.module.scss';
-
-// 2. Types
-interface FieldProps extends React.ComponentPropsWithoutRef<'input'> {}
+import styles from '@/componentsStyle/formStyles/TextField.module.scss';
   
-// 3. Component
-const PasswordField = React.forwardRef<HTMLInputElement, FieldProps>(
-    ({...inputProps }, ref) => { 
-        const [visible, setVisiblity] = useState<boolean>(false);
-        const inputType = visible ? 'text' : 'password';
+// 2. Component
+const PasswordField = forwardRef<HTMLInputElement, IFieldProps>(
+    ({ otherClass, ...inputProps }, ref) => { 
+        
+        const [isVisible, setIsVisible] = useState<boolean>(false);
+        const inputType = isVisible ? 'text' : 'password';
+
         // Return
         return (
-            <div className={styles.inputWrapper}>
+            <div className={`${styles.inputWrapper} ${otherClass}`}>
                 <input 
                     type={inputType}
                     {...inputProps}
@@ -30,8 +28,8 @@ const PasswordField = React.forwardRef<HTMLInputElement, FieldProps>(
                 <div className={styles.eye}>
                     <Image
                         layout="fill" 
-                        src={visible ? '/textField/eyeOpen.svg' : '/textField/eyeClosed.svg'}
-                        onClick={() => setVisiblity(!visible)}
+                        src={isVisible ? '/textField/eyeOpen.svg' : '/textField/eyeClosed.svg'}
+                        onClick={() => setIsVisible(!isVisible)}
                         alt="eye"
                     />
                 </div>
@@ -40,7 +38,6 @@ const PasswordField = React.forwardRef<HTMLInputElement, FieldProps>(
     }
 );
 
-// 4. Export
+// 3. Export
 PasswordField.displayName = 'PasswordField';
-
 export { PasswordField };
