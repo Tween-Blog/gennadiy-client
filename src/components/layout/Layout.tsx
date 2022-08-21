@@ -1,7 +1,7 @@
 // 1. Imports
 import { FC, ReactNode } from 'react';
 import { useRouter } from 'next/router';
-import { useAppSelector } from 'core/hook';
+import { useAppSelector } from 'core/store/hook';
 
 import { Header, Footer } from '@/layout';
 import { Loader } from '@/uiGraphics';

@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { useAppDispatch } from 'core/hook';
+import { useAppDispatch } from 'core/store/hook';
 import { login } from 'core/store/slices/authSlice';
 import { loader } from 'core/store/slices/loaderSlice';
 import AuthService from '@/services/AuthServices';

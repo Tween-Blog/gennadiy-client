@@ -4,7 +4,7 @@ import { FC , ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
 import AuthService from '@/services/AuthServices';
-import { useAppDispatch, useAppSelector } from 'core/hook';
+import { useAppDispatch, useAppSelector } from 'core/store/hook';
 import { logout } from 'core/store/slices/authSlice';
 import { loader } from 'core/store/slices/loaderSlice';
 

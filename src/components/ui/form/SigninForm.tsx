@@ -3,7 +3,7 @@ import { FC, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 
-import { useAppDispatch } from 'core/hook';
+import { useAppDispatch } from 'core/store/hook';
 import { login } from 'core/store/slices/authSlice';
 import { loader } from 'core/store/slices/loaderSlice';
 import validateForm from '@/helpers/validateForm';

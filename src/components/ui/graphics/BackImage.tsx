@@ -3,7 +3,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import { IBackImage } from 'interfaces/IUi';
-import styles from 'styles/module/components/BackImage.module.scss';
+import styles from '@/componentsStyle/BackImage.module.scss';
 
 // 2. Component
 const BackImage: FC<IBackImage> = ({ 
