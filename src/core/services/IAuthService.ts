@@ -8,7 +8,7 @@ export interface IRegistration
     nick: string,
 }
 
-interface IUser {
+export interface IUser {
     avatar: string,
     description: string,
     email: string,

@@ -3,7 +3,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { UniTag } from 'components/ui/global';
+import { UniTag } from 'components/ui/common';
 import { BackImage } from 'components/ui/graphics';
 import SigninForm from 'components/ui/form/SigninForm';
 

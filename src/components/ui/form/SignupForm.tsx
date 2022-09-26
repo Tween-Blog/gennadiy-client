@@ -8,9 +8,9 @@ import { loader } from 'core/store/slices/loaderSlice';
 import validateForm from '@/helpers/validateForm';
 import AuthService from '@/services/AuthServices';
 
-import { MainButton } from '@/uiGlobal';
-import { TextField } from './TextField';
-import { PasswordField } from './PasswordField';
+import { MainButton } from '@/uiCommon';
+import { TextField } from '@/uiForm/TextField';
+import { PasswordField } from '@/uiForm/PasswordField';
 
 import styles from '@/componentsStyle/formStyles/SignupForm.module.scss';
 

@@ -3,13 +3,13 @@ import { FC, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 
-import { useAppDispatch } from 'core/store/hook';
-import { login } from 'core/store/slices/authSlice';
-import { loader } from 'core/store/slices/loaderSlice';
+import { useAppDispatch } from '@/store/hook';
+import { login } from '@/store/slices/authSlice';
+import { loader } from '@/store/slices/loaderSlice';
 import validateForm from '@/helpers/validateForm';
 import AuthService from '@/services/AuthServices';
 
-import { MainButton }  from '@/uiGlobal/global';
+import { MainButton } from '@/uiCommon';
 import { TextField } from '@/uiForm/TextField';
 import { PasswordField } from '@/uiForm/PasswordField';
 

@@ -8,7 +8,7 @@ import { login } from 'core/store/slices/authSlice';
 import { loader } from 'core/store/slices/loaderSlice';
 import AuthService from '@/services/AuthServices';
 
-import { UniTag, MainButton } from '@/uiGlobal';
+import { UniTag, MainButton } from '@/uiCommon';
 import { BackImage } from '@/uiGraphics';
 
 import styles from '@/pagesStyle/Home.module.scss';

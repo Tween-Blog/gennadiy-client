@@ -1,3 +1,3 @@
-export { BackImage } from './BackImage';
-export { Loader } from './Loader';
-
+export { BackImage } from '@/uiGraphics/BackImage';
+export { ImageFon } from '@/uiGraphics/ImageFon';
+export { Loader } from '@/uiGraphics/Loader';

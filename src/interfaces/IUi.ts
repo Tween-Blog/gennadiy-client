@@ -1,5 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
-
+import { HTMLAttributes, ComponentPropsWithoutRef, ReactNode } from 'react';
 
 export interface INavigation {
     id: number;
@@ -8,7 +7,7 @@ export interface INavigation {
 }
 
 export interface IFieldProps 
-    extends React.ComponentPropsWithoutRef<'input'> {
+    extends ComponentPropsWithoutRef<'input'> {
         variety?: string;
         otherClass?: string;
     };

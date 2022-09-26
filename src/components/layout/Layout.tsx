@@ -1,7 +1,7 @@
 // 1. Imports
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useAppSelector } from 'core/store/hook';
+import { useAppSelector } from '@/store/hook';
 
 import { Header, Footer } from '@/layout';
 import { Loader } from '@/uiGraphics';
@@ -12,10 +12,26 @@ type LayoutType = { children: ReactNode };
 // 3. Component
 const Layout: FC<LayoutType> = ({ children }) => {
     const router = useRouter(); 
-    const isLoading = useAppSelector(state => state.loader.isLoading);
-    // console.log(isLoading);
+    const { pathname } = useRouter();
+
+    const isAuth = useAppSelector(state => state.auth.isAuth),
+          isLoading = useAppSelector(state => state.loader.isLoading);
+
+    useEffect(()  => {
+
+        if (pathname == '/404') {
+            setTimeout(() => {
+                router.push('/')
+            }, 5000)
+        } else {
+            !isAuth && pathname !== '/'
+            && pathname !== '/signin'
+            && pathname !== '/signup' ? router.push('/') : null
+        }
+        
+    }, [isAuth, pathname, router])
     
-    const sectionName: string = router.asPath !== '/' ? router.asPath.slice(1).split('?')[0] : 'home';
+    const sectionName: string = pathname !== '/' ? pathname.slice(1).split('?')[0] : 'home';
     
     return (
         <div className="next-layout">

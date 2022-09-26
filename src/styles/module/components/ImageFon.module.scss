@@ -6,7 +6,7 @@
 .signinStar,
 .errorStar,
 .signinGear,
-.errorGear {
+.errorGear{
     @extend %pozitionPage;
     @include rotationSpeed(51s)
 }

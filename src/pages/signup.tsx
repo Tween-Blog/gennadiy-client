@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { UniTag } from '@/uiGlobal';
+import { UniTag } from 'components/ui/common';
 import { BackImage } from '@/uiGraphics';
 import SignupForm from '@/uiForm/SignupForm';
 

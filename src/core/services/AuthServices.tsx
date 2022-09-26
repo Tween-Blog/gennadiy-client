@@ -1,5 +1,5 @@
 import {  AxiosResponse } from 'axios';
-import api from '../http';
+import { api } from 'core/http';
 
 import { IRegistration, IAuthorization, AuthResponse } from 'interfaces/IAuthService';
 

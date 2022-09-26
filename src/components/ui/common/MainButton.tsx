@@ -1,23 +1,26 @@
 // 1. Imports
-import styles from 'styles/module/components/MainButton.module.scss'
+import { FC } from 'react';
 
-// 2. Types
-interface IBtn
-  extends React.HTMLAttributes<HTMLButtonElement> {
-  text: string,
-}
+import { IButton } from 'interfaces/IUi';
+import styles from '@/componentsStyle/MainButton.module.scss'
 
-// 3. Component
-const MainButton: React.FC<IBtn> = ( { text , ...other } ) => {
+// 2. Component
+const MainButton: FC<IButton> = ( { 
+    type = 'submit', 
+    text, 
+    otherClass='mainBtn', 
+    ...buttonProps 
+} ) => {
     return (
         <button 
-            className={styles.mainButton}
-            {...other}
+            type={type}
+            className={`${styles.mainButton} ${otherClass}`}
+            {...buttonProps}
         >
             {text}
         </button>
     )
 }
 
-// 4. Export
+// 3. Export
 export { MainButton };

@@ -2,12 +2,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authSlice from './slices/authSlice';
 import loaderSlice from './slices/loaderSlice';
+import editContentSlice from './slices/editContentSlice';
 
 // Store
 const store = configureStore({
     reducer: {
       auth: authSlice, 
       loader: loaderSlice,
+      editContent: editContentSlice,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({

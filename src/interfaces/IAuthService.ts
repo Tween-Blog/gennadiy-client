@@ -9,16 +9,16 @@ export interface IRegistration
 }
 
 export interface IUser {
-    avatar: string,
-    description: string;
-    email: string;
-    id: string;
-    isActivated: boolean;
-    nick: string;
-    postsCount: number;
-    subscribersCount: number;
-    subscriptionsCount: number;
-}
+    avatar?: string,
+    description?: string;
+    email?: string;
+    id?: string;
+    isActivated?: boolean;
+    nick?: string;
+    postsCount?: number;
+    subscribersCount?: number;
+    subscriptionsCount?: number;
+} 
 
 interface IError {
     type: string;
@@ -28,7 +28,7 @@ interface IError {
 export interface AuthResponse {
     accessToken: string;
     refreshToken: string;
-    user: IUser;
+    user: IUser | {};
     message?: string;
     error?: IError;
 }

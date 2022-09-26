@@ -1,19 +1,19 @@
 // 1. Imports
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-// import { ImageFon } from 'components/ui/graphics';
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
+import { ImageFon } from '@/uiGraphics';
 
 import styles from 'styles/module/pages/404.module.scss';
 
 // 2. Component
 const Error: React.FC = () => {
-    const router = useRouter();
+    // const router = useRouter();
 
-    useEffect(() => {
-        setTimeout(() => {
-            router.push('/')
-        }, 5000)
-    }, [router])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         router.push('/')
+    //     }, 5000)
+    // }, [router])
 
     // Return
     return (
@@ -26,13 +26,13 @@ const Error: React.FC = () => {
                     Ууупс, что-то пошло не так... 
                 </p>     
             </div>
-            {/* <ImageFon
+            <ImageFon
                 varietyStar={'errorStar'} 
             />
             <ImageFon
                 srcImage={'gear.svg'}
                 varietyStar={'errorGear'} 
-            /> */}
+            />
         </div>
     )
 }; 

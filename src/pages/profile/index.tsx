@@ -1,30 +1,35 @@
 // 1. Imports
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useAppSelector } from '@/store/hook';
 
-import { useAppSelector } from 'core/store/hook';
+import { Avatar, UserStatistics, DownloadingPublications } from '@/uiGlobal';
+import { IUser } from 'interfaces/IAuthService';
 
-import { Avatar } from '@/uiGlobal';
-
+import style from '@/pagesStyle/Profile.module.scss';
 
 // 2. Component
 const Profile = () => {
   // Variables
-  const router = useRouter();
 
-  const isAuth = useAppSelector(state => state.auth.isAuth),
-        user = useAppSelector(state =>state.auth.user);
-
-  useEffect(()  => {
-    !isAuth ? router.push('/') : null
-  }, [isAuth, router])
-
-  // Return
+  const user:IUser = useAppSelector(state =>state.auth.user);
+    
+// Return
   return (
     <div>
-      <Avatar
-        nick={user['nick']}
-      />
+
+      <div className={style.profile__section}>
+        <Avatar
+          user={user}
+          isDownload
+          editContent
+        />
+
+        <UserStatistics 
+          user={user}
+        />
+      </div>
+
+      <DownloadingPublications />
+      
     </div>
   );
 }

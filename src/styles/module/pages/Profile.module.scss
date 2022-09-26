@@ -1,0 +1,25 @@
+.profile__section {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.panel {
+    display: flex;
+}
+
+.panel__item {
+    text-align: center;
+    margin-left: 50px;
+}
+
+.panel__heading {
+    color: #252525;
+    font: 600 24px 'Open Sans', sans-serif;
+}
+
+.panel__designation {
+    color: #252525;
+    font: 400 16px 'Open Sans', sans-serif;
+    margin-top: 5px;
+}

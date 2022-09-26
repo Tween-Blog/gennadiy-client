@@ -4,9 +4,9 @@ import { FC , ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
 import AuthService from '@/services/AuthServices';
-import { useAppDispatch, useAppSelector } from 'core/store/hook';
-import { logout } from 'core/store/slices/authSlice';
-import { loader } from 'core/store/slices/loaderSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hook';
+import { logout } from '@/store/slices/authSlice';
+import { loader } from '@/store/slices/loaderSlice';
 
 import { INavigation } from 'interfaces/IUi';
 import styles from '@/componentsStyle/Navbar.module.scss';
@@ -21,7 +21,7 @@ const Navbar: FC = () => {
     const navProfile: ReactNode = <div className={styles.navProfile}></div>
     const navigation: INavigation[] = [
         { id: 1, content: 'Главная', path: '/' },
-        { id: 2, content: 'Пользователи', path: '/usersList' },
+        { id: 2, content: 'Пользователи', path: '/users' },
         { id: 3, content: navProfile, path: '/profile' },
     ]
 

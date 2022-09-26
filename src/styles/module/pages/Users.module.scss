@@ -1,0 +1,11 @@
+.users {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.user {
+    width: 32%;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,46 @@
+.avatar__content {
+    min-width: 170px;
+    margin-left: 30px;   
+    position: relative;
+}
+
+.nick {
+    display: flex;
+    align-items: center;
+    &__value {
+        font: 600 24px 'Open Sans', sans-serif;
+        color: #252525;
+        cursor: pointer; 
+    }
+}
+
+.description {
+    display: flex;
+    height: 21px;
+    margin-top: 3px;
+    align-items: center;
+    &__value {
+        font: 400 14px 'Open Sans', sans-serif;
+        color: #7E7E7E; 
+        cursor: pointer;
+    } 
+}
+
+.edit__overlay {
+    display: inline-block;
+    margin-right: auto;
+    width: 21px;
+    height: 21px;
+    background:  url("/navigation/pencilSimple.svg") no-repeat center / cover;
+    margin-left: 10px;  
+    cursor: pointer;
+    &_active {
+        display: inline-block;
+        margin-right: auto;
+        width: 21px;
+        height: 21px;;
+        background:  url("/navigation/pencilSimpleActive.svg") no-repeat center / cover;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}

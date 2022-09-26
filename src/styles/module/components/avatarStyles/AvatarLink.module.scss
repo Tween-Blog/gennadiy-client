@@ -1,0 +1,30 @@
+.link {
+    position: absolute;
+    left: 0;
+	bottom: 0;
+    &.active,
+    &:hover {
+        .linkUser::after {
+            border: 1px solid;
+            color: #A749F2;
+        }
+    }
+}
+
+.linkUser {
+    font: 400 14px 'Open Sans', sans-serif;
+    color: #A749F2;
+}
+
+.linkUser::after {
+    color: #fff;
+    position: absolute;
+    top: 1.2px;
+    content: "";
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin-left: 5px;
+    background:  url("/navigation/vector.svg") no-repeat center;
+    border: 1px solid;
+}

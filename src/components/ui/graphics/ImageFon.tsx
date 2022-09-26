@@ -1,7 +1,8 @@
 // 1. Imports
+import { FC } from 'react';
 import Image from 'next/image';
 
-import styles from 'styles/module/components/ImageFon.module.scss';
+import styles from '@/componentsStyle/ImageFon.module.scss';
 
 //2. Types
 interface ImageFonProps {
@@ -10,7 +11,7 @@ interface ImageFonProps {
 }
 
 // 3. Component
-const ImageFon: React.FC<ImageFonProps> = ({ 
+const ImageFon: FC<ImageFonProps> = ({ 
     varietyStar = 'homeStar', 
     srcImage = 'star.png' 
 }) => {
