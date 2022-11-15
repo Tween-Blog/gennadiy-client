@@ -1,0 +1,49 @@
+@import 'styles/global/colors';
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    .logo {
+        color: $refColor;
+        font: 400 24px 'Open Sans', sans-serif; 
+        line-height: 33px;
+    }
+    .link {
+        margin-left: 30px;
+    }
+    a {
+        color: $greyColor;
+        font-size: 16px;
+        &.active,
+        &:hover
+            {
+                color: $refColor;  
+                .navProfile {
+                    background:  url("/navigation/userActive.svg") no-repeat center / cover;
+                }
+            }
+    }
+}
+
+.links {
+    display: flex;
+    align-items: center;  
+}
+
+.navProfile {
+    width: 30px;
+    height: 30px;
+    background:  url("/navigation/user.svg") no-repeat center / cover;
+}
+
+.navLogout {
+    width: 30px;
+    height: 30px;
+    background:  url("/navigation/navLogout.svg") no-repeat center / cover;
+    cursor: pointer;
+    &:hover {
+        background:  url("/navigation/navLogoutActive.svg") no-repeat center / cover;
+    }
+}

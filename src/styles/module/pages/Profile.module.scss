@@ -1,0 +1,46 @@
+@import '@vars';
+
+.profile__section {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.panel {
+    display: flex;
+}
+
+.panel__item {
+    color: #252525;
+    text-align: center;
+    margin-left: 50px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: $themeColor;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+}
+
+.panel__heading {
+    font: 600 24px 'Open Sans', sans-serif;
+    margin-bottom: 5px;
+}
+
+.panel__designation {
+    font: 400 16px 'Open Sans', sans-serif;
+}
+
+.profile__download {
+    padding-bottom: 50px;
+}
+
+.profile__block {
+    padding-bottom: 30px;
+}
+
+.profile__posts {
+    padding-top: 30px;
+    border-top: 2px solid #7E7E7E;
+}

@@ -1,0 +1,27 @@
+// Images and animation
+
+// Star and Gear
+@keyframes rotation {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+
+%pozitionPage {
+    position: fixed;
+	z-index: 1;
+}
+
+@mixin rotationSpeed($speed) {
+    animation: rotation $speed infinite linear;
+}
+
+@mixin placeImg( $width, $height, $top, $left) { 
+    width: $width;
+    height: $height;
+	top: $top; 
+	left: $left;
+}

@@ -1,0 +1,20 @@
+@import 'styles/global/colors';
+
+.frameSignin {
+    width: 425px;
+    padding: 40px 70px;
+    background: #F9F9F9;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 12;
+    top: calc(50% - 140px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.toSignup {
+    font-size: 14px;
+    color: $greyColor;
+    cursor: pointer;
+}
