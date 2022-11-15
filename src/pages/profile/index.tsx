@@ -9,9 +9,11 @@ import DownloadForm from '@/uiForm/DownloadForm';
 
 import { IPost } from 'interfaces/IPosts';
 import style from '@/pagesStyle/Profile.module.scss';
+import Swal from 'sweetalert2';
 
 const Profile = () => {
   const dispatch = useAppDispatch();
+  const isAuth = useAppSelector(state => state.auth.isAuth);
   const user:IUser = useAppSelector(state =>state.auth.user);
   const idUser:string = user.id;
 
@@ -25,6 +27,13 @@ const getPosts = async () => {
 };
 
 useEffect(()  => {
+    if(isAuth && user && !user.isActivated) {
+      Swal.fire({
+        title: 'Ваш аккаунт не активирован!',
+        icon: 'warning'
+      });
+    }
+
     getPosts();
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []); 
