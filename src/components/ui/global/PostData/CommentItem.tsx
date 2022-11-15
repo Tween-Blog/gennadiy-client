@@ -6,7 +6,7 @@ import { IUser } from 'interfaces/IAuthService';
 import UserService from '@/services/UsersServices';
 
 import { IComment } from 'interfaces/IPosts';
-import style from '@/componentsStyle/ProfileStyles/Comments.module.scss';
+import style from '@componentsStyle/ProfileStyles/Comments.module.scss';
 
 const CommentItem:FC<any> = ( {comment} ) => {
     const isAuth = useAppSelector(state => state.auth.isAuth);

@@ -29,7 +29,7 @@
       "@/services*": ["core/services*", "core/services"],
       "@/store*": ["core/store*", "core/store"],
 
-      "@/componentsStyle*": ["styles/module/components*", "styles/module/components"],
+      "@componentsStyle*": ["styles/module/components*", "styles/module/components"],
       "@/pagesStyle*": ["styles/module/pages*", "styles/module/pages"]
     },
     "jsx": "preserve"

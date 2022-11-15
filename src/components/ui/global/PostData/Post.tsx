@@ -9,7 +9,7 @@ import { useUpdatePost } from '@/helpers/hook/useUpdatePost';
 import Comments from '@/uiGlobal/PostData/Comments';
 
 import { IPostProps } from 'interfaces/IPosts';
-import style from '@/componentsStyle/ProfileStyles/Posts.module.scss'
+import style from '@componentsStyle/ProfileStyles/Posts.module.scss'
 import Swal from 'sweetalert2';
 
 const Post:FC<IPostProps> = ({post}) => {

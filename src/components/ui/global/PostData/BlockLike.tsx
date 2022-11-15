@@ -6,7 +6,7 @@ import { useCheckLike } from '@/helpers/hook/useCheckLike';
 import { useAppSelector } from '@/store/hook';
 
 import { ILike } from 'interfaces/IPosts';
-import style from '@/componentsStyle/ProfileStyles/Comments.module.scss';
+import style from '@componentsStyle/ProfileStyles/Comments.module.scss';
 
 const BlockLike:FC<ILike> = ({date, like, postId, userId}) => { 
     const [countLike, setCountLike] = useState<number>(like);

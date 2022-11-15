@@ -4,7 +4,7 @@ import Post from '@/uiGlobal/PostData/Post';
 
 
 import { IPost } from 'interfaces/IPosts';
-import style from '@/componentsStyle/ProfileStyles/Posts.module.scss';
+import style from '@componentsStyle/ProfileStyles/Posts.module.scss';
 
 const PostsProfile:FC = () => {
     const posts:IPost[] = useAppSelector(state =>state.updatePost.list);
