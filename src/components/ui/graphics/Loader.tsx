@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppSelector } from '@/store/hook';
-import styles from '@/componentsStyle/Loader.module.scss';
+import styles from '@componentsStyle/Loader.module.scss';
 
 const Loader: FC = () => {
     const isLoading = useAppSelector(state => state.loader.isLoading);

@@ -6,7 +6,7 @@ import AvatarDownload from '@/uiGlobal/Avatar/AvatarDownload';
 import AvatarContentProfile from '@/uiGlobal/Avatar/AvatarContentProfile';
 import AvatarContent from '@/uiGlobal/Avatar/AvatarContent';
 
-import style from '@/componentsStyle/avatarStyles/Avatar.module.scss';
+import style from '@componentsStyle/avatarStyles/Avatar.module.scss';
 
 type AvatarProps = {
     user: IUser;

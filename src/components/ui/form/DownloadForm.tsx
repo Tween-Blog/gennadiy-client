@@ -7,7 +7,7 @@ import { addPost } from '@/store/slices/updatePostSlice';
 import { useCreatePost } from '@/helpers/hook/useCreatePost';
 import { loader } from '@/store/slices/loaderSlice';
 import { MainButton } from '@/uiCommon';
-import style from '@/componentsStyle/formStyles/DownloadForm.module.scss';
+import style from '@componentsStyle/formStyles/DownloadForm.module.scss';
 import { setPostsCount } from '@/store/slices/authSlice';
 
 const DownloadForm: FC<{idUser: string}> = ({idUser}) => {
