@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { forwardRef, useState } from 'react';
 
 import { IFieldProps }  from 'interfaces/IUi';
-import styles from '@/componentsStyle/formStyles/TextField.module.scss';
+import styles from '../../../styles/module/components/formStyles/TextField.module.scss';
 
 const PasswordField = forwardRef<HTMLInputElement, IFieldProps>(
     ({ otherClass, ...inputProps }, ref) => {      

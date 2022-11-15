@@ -9,7 +9,7 @@ import BlockLike from '@/uiGlobal/PostData/BlockLike';
 import { IUser } from 'interfaces/IAuthService';
 import { IComment } from 'interfaces/IPosts';
 import { ICommentProps } from 'interfaces/IPosts';
-import style from '@componentsStyle/ProfileStyles/Comments.module.scss';
+import style from '../../../../styles/module/components/profileStyles/Comments.module.scss';
 
 const Comments:FC<ICommentProps> = ({post}) => {
     const isAuth = useAppSelector(state => state.auth.isAuth);

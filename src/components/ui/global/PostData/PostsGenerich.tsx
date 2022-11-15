@@ -2,7 +2,7 @@ import { FC } from 'react';
 import PostItem from '@/uiGlobal/PostData/PostItem';
 
 import { IPost } from 'interfaces/IPosts';
-import style from '@componentsStyle/ProfileStyles/Posts.module.scss';
+import style from '../../../../styles/module/components/profileStyles/Posts.module.scss';
 
 const PostsGenerich:FC <any> = ({posts}) => {  
     return (

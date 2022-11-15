@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { IButton } from 'interfaces/IUi';
-import styles from '@componentsStyle/MainButton.module.scss';
+import styles from '../../../styles/module/components/MainButton.module.scss';
 
 const MainButton: FC<IButton> = ( { 
     type = 'submit', 

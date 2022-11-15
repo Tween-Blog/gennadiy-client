@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import styles from '@componentsStyle/avatarStyles/AvatarLink.module.scss';
+import styles from '../../../../styles/module/components/avatarStyles/AvatarLink.module.scss';
 
 type LinkProps = { id: string };
 

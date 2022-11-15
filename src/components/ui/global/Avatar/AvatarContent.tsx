@@ -1,7 +1,7 @@
 import { FC   } from 'react';
 import AvatarLink from '@/uiGlobal/Avatar/AvatarLink';
 import { ContentProps } from 'interfaces/IAvatar';
-import style from '@componentsStyle/avatarStyles/AvatarContent.module.scss';
+import style from '../../../../styles/module/components/avatarStyles/AvatarContent.module.scss';
 
 const AvatarContentProfile:FC<ContentProps> = ({ id, nick, description, isLink }) => {
     

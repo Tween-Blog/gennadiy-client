@@ -6,7 +6,7 @@ import UsersServices from '@/services/UsersServices';
 import { login } from '@/store/slices/authSlice';
 
 import { ContentProps } from 'interfaces/IAvatar';
-import styles from '@componentsStyle/avatarStyles/AvatarContent.module.scss';
+import styles from '../../../../styles/module/components/avatarStyles/AvatarContent.module.scss';
 
 const AvatarContentProfile:FC<ContentProps> = ({ id, nick, description }) => {
     const dispatch = useAppDispatch();

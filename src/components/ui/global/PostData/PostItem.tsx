@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Comments from '@/uiGlobal/PostData/Comments';
 
 import { IPostProps } from 'interfaces/IPosts';
-import style from '@componentsStyle/ProfileStyles/Posts.module.scss'
+import style from '../../../../styles/module/components/profileStyles/Posts.module.scss'
 import { useCheckLike } from '@/helpers/hook/useCheckLike';
 import { useAppSelector } from '@/store/hook';
 import { IUser } from 'interfaces/IAuthService';

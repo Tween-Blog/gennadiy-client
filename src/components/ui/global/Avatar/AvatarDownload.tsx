@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/store/hook';
 import { login } from '@/store/slices/authSlice';
 import { loader } from '@/store/slices/loaderSlice';
 
-import styles from '@componentsStyle/avatarStyles/Avatar.module.scss';
+import styles from '../../../../styles/module/components/avatarStyles/Avatar.module.scss';
 
 type LinkProps = { id: string };
 

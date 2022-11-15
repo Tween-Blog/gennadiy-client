@@ -5,7 +5,7 @@ import UsersServices from '@/services/UsersServices';
 import { login } from '@/store/slices/authSlice';
 import { makeEditNick, makeEditDescription } from '@/store/slices/editContentSlice';
 import { EditProps } from 'interfaces/IAvatar';
-import styles from '@/componentsStyle/avatarStyles/AvatarContent.module.scss';
+import styles from '../../../../styles/module/components/avatarStyles/AvatarContent.module.scss';
 
 const EditContent:FC <EditProps> = ({
     id,

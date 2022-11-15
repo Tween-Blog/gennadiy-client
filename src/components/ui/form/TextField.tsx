@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { optionsTField } from '@/uiForm/optionsTField';
 import { IFieldProps } from 'interfaces/IUi';
 
-import styles from '@/componentsStyle/formStyles/TextField.module.scss';
+import styles from '../../../styles/module/components/formStyles/TextField.module.scss';
 
 const TextField = forwardRef<HTMLInputElement, IFieldProps>(
     ({  
