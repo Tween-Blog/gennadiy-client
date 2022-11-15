@@ -1,7 +1,5 @@
-// Imports
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import config from 'config';
-
 import AuthService from './services/AuthServices';
 
 const apiUrl = config.NEXT_API_URL;
@@ -21,55 +19,32 @@ api.interceptors.request.use((config) => {
 
 // Api general
 const apiGeneral = axios.create({
+    // withCredentials: true,
     baseURL: apiUrlGeneral
 });
 
 // Interceptors on requests api general
-apiGeneral.interceptors.request.use((config) => {
+apiGeneral.interceptors.request.use((config) => {    
     config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`;
-    console.log('Перехват запроса общий')
     return config;
 });
 
 // Interceptors on response api general
 apiGeneral.interceptors.response.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`;
-    console.log('Перехват ответа отработал')
     return config;
-}, async error => { 
-    
-    // console.log(localStorage.accessToken);
-    // if(error.response.status == 401) {
-
-
-    //     const response = await AuthService.refresh();
-    //      console.log(response.data.accessToken);
-    //     localStorage.setItem('accessToken', response.data.accessToken);
-    //     localStorage.accessToken = response.data.accessToken;
-    //     console.log(localStorage.accessToken);
-        
-    //     // console.log(error);
-    // }
-    const originalRequest = error.config;
-
-    if(error.response.status == 401 && error.response.status == 500 && error.config && !originalRequest.isRetry) {
-
-      
-        // const response = await AuthService.refresh();
-
-        try {
+    },async (error) => {
+        const originalRequest = error.config;
+        if(error.response.status == 401 && error.config && !originalRequest.isRetry) {
             originalRequest.isRetry = true;
-
-            const response = await AuthService.refresh();  
-            localStorage.setItem('accessToken', response.data.accessToken);
-            console.log('Рефреш выполнен'); 
-            return apiGeneral.request(originalRequest);
-        } catch (e) {
-            alert('Пожалуйста авторизуйтесь');
-        };
-    };
-
-    throw error;
-});
+            try {
+                const response = await AuthService.refresh(); 
+                localStorage.setItem('accessToken', response.data.accessToken);
+                return apiGeneral.request(originalRequest);
+            } catch  {
+                // Error request for the test
+            }
+        }
+        throw error;
+    })
 
 export  { api, apiGeneral };

@@ -1,4 +1,3 @@
-// 1. Imports
 import Link from 'next/link';
 import { FC , ReactNode } from 'react';
 import { useRouter } from 'next/router';
@@ -11,10 +10,8 @@ import { loader } from '@/store/slices/loaderSlice';
 import { INavigation } from 'interfaces/IUi';
 import styles from '@/componentsStyle/Navbar.module.scss';
 
-// 2. Component
 const Navbar: FC = () => {
     const { pathname } = useRouter();
-
     const dispatch = useAppDispatch();
     const isAuth = useAppSelector(state => state.auth.isAuth);
 
@@ -23,39 +20,32 @@ const Navbar: FC = () => {
         { id: 1, content: 'Главная', path: '/' },
         { id: 2, content: 'Пользователи', path: '/users' },
         { id: 3, content: navProfile, path: '/profile' },
-    ]
+    ];
 
     const handleLogout = async () => {  
         try {
             dispatch(loader());
-            const response = await AuthService.logout();  
+            await AuthService.logout();  
             localStorage.removeItem('accessToken'); 
             dispatch(logout());  
-        } 
-        catch (e) {
+        } catch (e) {
             console.error(e.response.data);
-        }  
-        finally {
+        }  finally {
             dispatch(loader()); 
         }  
-    }
+    };
      
-    // Return
     return (
         <nav className={styles.nav}>
-
             <Link href="/">
                  <a className={styles.logo}>
                     Tween
                 </a>
             </Link>
             <ul className={styles.links}>
-                {navigation.map(( {id, content, path}) => (
-
-                    <li 
-                        key={id}
-                        className={styles.link}
-                    >
+                {navigation.map(( {id, content, path} ) => (
+                    
+                    <li key={id} className={styles.link} >
                         <Link  href={path}>
                             <a className={
                                 pathname === path? styles.active :
@@ -70,16 +60,12 @@ const Navbar: FC = () => {
                     <li className={styles.link}>
                         <div 
                             className={isAuth ? styles.navLogout : null}
-                            onClick={() => handleLogout()}
-                        >
-                        </div>
-                    </li>
-                    
-            </ul>
-            
+                            onClick={() => handleLogout()} 
+                        />
+                    </li>   
+            </ul>   
         </nav>
     )
-}
+};
 
-// 3. Export
 export { Navbar };

@@ -1,26 +1,19 @@
-// 1. Imports
-import { HTMLAttributes, FC } from 'react'
-
-//2. Types
+import { HTMLAttributes, FC } from 'react';
 
 export interface UniTagProps
-    extends HTMLAttributes<HTMLButtonElement> {
-        Tag?: any;
+    extends HTMLAttributes<HTMLElement> {
+        tag?: string;
         text?: string;
         otherClass?: string;
-  }
+    };
 
-// 3. Component
-const UniTag: FC<UniTagProps> = ( {Tag = 'h1', text, ...otherClass } ) => {
+const UniTag: FC<UniTagProps> = ( {tag = 'h1', text, ...otherClass } ) => {
+    const Tag = tag;
     return (
         <Tag {...otherClass} >
-
             {text}
-
         </Tag>
     )
-
-}
+};
   
-// 4. Export
 export { UniTag };

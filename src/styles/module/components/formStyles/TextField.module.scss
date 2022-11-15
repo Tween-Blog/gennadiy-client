@@ -5,7 +5,8 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #DFDFDF;
-    background-color: $refColor !important;
+    background-color: $refColor;
+    caret-color: $themeColor;
 }
   
 .textfield:focus {

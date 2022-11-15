@@ -1,3 +1,5 @@
+@import 'styles/global/colors';
+
 .users {
     display: flex;
     justify-content: space-between;
@@ -8,4 +10,8 @@
 .user {
     width: 32%;
     margin-bottom: 50px;
+}
+
+.nick {
+    color: $themeColor;
 }

@@ -22,8 +22,12 @@ export const editContentSlice = createSlice({
             state.isEditDescription = !state.isEditDescription;
             state.isEditNick = false;
         },
+        resetEditContent: (state) => {
+            state.isEditDescription = false;
+            state.isEditNick = false;  
+        },
     },
 })
 
-export const { makeEditNick, makeEditDescription } = editContentSlice.actions;
+export const { makeEditNick, makeEditDescription, resetEditContent } = editContentSlice.actions;
 export default editContentSlice.reducer;

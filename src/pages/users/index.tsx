@@ -6,29 +6,21 @@ import UserService from '@/services/UsersServices';
 import { loader } from 'core/store/slices/loaderSlice';
 
 import { UniTag } from 'components/ui/common';
-import { Avatar } from '@/uiGlobal';
-
+import { Avatar } from '@/uiGlobal/Post';
 import styles from '@/pagesStyle/Users.module.scss';
 
-// 2. Component
 const Users = () => { 
-     // Variables
     const [users, setUsers] = useState<IUser[]>([]);
 
+    const dispatch = useAppDispatch();
     const userCurr: IUser = useAppSelector(state =>state.auth.user);
 
-    const dispatch = useAppDispatch();
-   
     const getUsers = async () => {   
         try {
             dispatch(loader());
             const users = await UserService.users();
             setUsers(users.data); 
-        }
-        catch (e) {
-            console.error(e.response);
-        } 
-        finally {
+        } finally {
             dispatch(loader());
         } 
     };
@@ -43,17 +35,11 @@ const Users = () => {
         <UniTag text={'Пользователи Tween'} />
         <ul className={styles.users}>
                 {users && users.filter(user => user.id !== userCurr.id).map(user => (
-                <li 
-                    key={user.id}
-                    className={styles.user}
-                >
-                    <Avatar
-                        user={user}
-                        isLink={true}
-                    />
+                <li key={user.id} className={styles.user}>
+                    <Avatar user={user} isLink />
                 </li>
             ))} 
-      </ul>
+        </ul>
     </div>
   );
 };

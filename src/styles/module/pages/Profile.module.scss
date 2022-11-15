@@ -1,3 +1,5 @@
+@import '@vars';
+
 .profile__section {
     display: flex;
     justify-content: space-between;
@@ -9,17 +11,36 @@
 }
 
 .panel__item {
+    color: #252525;
     text-align: center;
     margin-left: 50px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: $themeColor;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 }
 
 .panel__heading {
-    color: #252525;
     font: 600 24px 'Open Sans', sans-serif;
+    margin-bottom: 5px;
 }
 
 .panel__designation {
-    color: #252525;
     font: 400 16px 'Open Sans', sans-serif;
-    margin-top: 5px;
+}
+
+.profile__download {
+    padding-bottom: 50px;
+}
+
+.profile__block {
+    padding-bottom: 30px;
+}
+
+.profile__posts {
+    padding-top: 30px;
+    border-top: 2px solid #7E7E7E;
 }

@@ -1,4 +1,3 @@
-// 1. Imports
 import { FC, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
@@ -13,9 +12,7 @@ import { MainButton } from '@/uiCommon';
 import { TextField } from '@/uiForm/TextField';
 import { PasswordField } from '@/uiForm/PasswordField';
 
-// 2. Component
-const SigninForm: FC = ( {} ) => {
-    // Variebles
+const SigninForm: FC = () => {
     const router = useRouter();
     const dispatch = useAppDispatch();
    
@@ -27,8 +24,7 @@ const SigninForm: FC = ( {} ) => {
 
     const handleSubmit = async () => {      
         try {
-            dispatch(loader());
-            
+            dispatch(loader());  
             const validateResult = validateForm([inputEmailRef, inputPasswordRef], {
                 validatePassword: false,
             });
@@ -47,21 +43,13 @@ const SigninForm: FC = ( {} ) => {
                     return;
                 };
             };
-        } 
-        catch (e) {
-            console.error(e.response.data);
-        }
-        finally {
+        } finally {
             dispatch(loader());
         }    
-    }
+    };
     
-    // Return
     return (
-        <form
-            onSubmit={(e) => e.preventDefault()} 
-            noValidate
-        >
+        <form onSubmit={(e) => e.preventDefault()} noValidate >
             <TextField
                 variety="email"
                 value={emailValue}
@@ -83,7 +71,6 @@ const SigninForm: FC = ( {} ) => {
             /> 
         </form>
     )
-}
+};
 
-// 3. Export
 export default SigninForm;

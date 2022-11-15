@@ -22,6 +22,11 @@ export const optionsTField: FieldType = {
         type: 'email',
         placeholder: 'Email', 
         name: 'email ',
+    },
+    publicationTitle: {
+        type: 'text',
+        placeholder: 'Название публикации', 
+        name: 'publication',
     }
 };
 

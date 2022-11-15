@@ -1,4 +1,3 @@
-// 1. Imports
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -10,12 +9,9 @@ import AuthService from '@/services/AuthServices';
 
 import { UniTag, MainButton } from '@/uiCommon';
 import { BackImage } from '@/uiGraphics';
-
 import styles from '@/pagesStyle/Home.module.scss';
 
-// 2. Component
 const Home: NextPage = () => {
-  // Variables
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -28,25 +24,19 @@ const Home: NextPage = () => {
         dispatch(login(response.data.user));
         localStorage.accessToken = response.data.accessToken;
         router.push('/profile')
-      } 
-      catch (e) {
-        console.error(e.response.data);
-      } 
-      finally {
+      } finally {
         dispatch(loader());
       }  
     } 
-  }
+  };
   
   useEffect(()  => {
     checkAuth();
   }, [checkAuth])
 
-  // Return
   return (
     <div>
       <div className={styles.offer}>
-
         <UniTag text={'Начни свой блог с Tween!'} />
         <p className={styles.offerTitle}>
           В нашем приложении ты cможешь поделиться информацией
@@ -58,13 +48,11 @@ const Home: NextPage = () => {
           text={'Начать с Tween'}
           onClick={() => localStorage.checkRegistration ? router.push('/signin') : router.push('/signup')}
         /> 
-
       </div>
 
       <BackImage />
     </div>
   );
-}
+};
 
-// 3. Export
 export default Home;

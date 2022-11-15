@@ -1,16 +1,13 @@
-/// 1. Imports
 import { MutableRefObject } from 'react';
-
 import Swal from 'sweetalert2';
 
-// 2. Types
+
 type ValidateOptionsType = {
     validateEmptyFields?: boolean,
     validateEmail?: boolean,
     validatePassword?: boolean
 }
 
-// 3. Functions
 const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOptions?: ValidateOptionsType) => {
     // Default options values
     let isValidateEmptyFields: boolean = true,
@@ -54,7 +51,6 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
 
         const isRequired: boolean = input.getAttribute('required') !== null;
 
-        
         // Voids
         const passwordIncorrect = (): void => {
             input.classList.add('wrong');
@@ -108,6 +104,5 @@ const validateForm = (inputs: MutableRefObject<HTMLInputElement>[], validateOpti
     return validateResult;
 };
 
-// 4. Export
 export default validateForm;
 

@@ -1,4 +1,3 @@
-// 1. Imports
 import { FC, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
@@ -14,9 +13,7 @@ import { PasswordField } from '@/uiForm/PasswordField';
 
 import styles from '@/componentsStyle/formStyles/SignupForm.module.scss';
 
-// 2. Component
-const SignupForm: FC = ( {} ) => {
-    // Сonstants
+const SignupForm: FC = () => {
     const router = useRouter();
     const dispatch = useAppDispatch();
 
@@ -52,19 +49,13 @@ const SignupForm: FC = ( {} ) => {
                     })
                 };
             };
-        } 
-        catch (e) {
-            console.error(e.response.data);
-        }
-        finally {
+        } finally {
             dispatch(loader());
         };    
-    }
+    };
     
-    // Return
     return (
-        <form
-            className={styles.signup}
+        <form className={styles.signup}
             onSubmit={(e) => e.preventDefault()} 
             noValidate
         >
@@ -100,7 +91,6 @@ const SignupForm: FC = ( {} ) => {
             /> 
         </form>
     )
-}
+};
 
-// 3. Export
 export default SignupForm;

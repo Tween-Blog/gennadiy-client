@@ -1,10 +1,21 @@
+import { FC } from 'react';
+import { useAppSelector } from '@/store/hook';
 import styles from '@/componentsStyle/Loader.module.scss';
 
-const Loader = () => {
+const Loader: FC = () => {
+    const isLoading = useAppSelector(state => state.loader.isLoading);
+    const loading = useAppSelector(state => state.updatePost.loading);
+
     return (
         <div>
-            <div className={styles.overlay}></div>
-            <div className={styles.wrapper}>
+            <div className={
+                `${styles.overlay} ${isLoading || loading  ? styles.showLoader : ''}`
+            } 
+        />
+            <div className={
+                    `${styles.wrapper} ${isLoading || loading  ? styles.showLoader : ''}`
+                }
+            >
                 <div className={styles.roller}>
                     <div></div>
                     <div></div>

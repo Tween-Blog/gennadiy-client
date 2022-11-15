@@ -15,12 +15,4 @@ export default class UserService {
     static async userData(data: FormData) {   
         return apiGeneral.put('/users', data);
     }
-
-    // static async login(data: IAuthorization): Promise<AxiosResponse<AuthResponse>> {
-    //     return api.post('/login', data)
-    // }
-
-    // static async refresh(): Promise<AxiosResponse<AuthResponse>> {
-    //     return api.get('/refresh')
-    // }
 }  

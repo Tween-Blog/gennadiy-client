@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { Navbar } from '@/layout';
 
-// 2. Component
 const Header: FC = () => {
     return (
         <header>
@@ -10,7 +9,6 @@ const Header: FC = () => {
             </div>
       </header>
     )
-}
+};
 
-// 3. Export
 export { Header };

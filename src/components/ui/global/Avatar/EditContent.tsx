@@ -1,23 +1,11 @@
-// 1. Imports
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
+import { useAppDispatch, useAppSelector } from '@/store/hook';
 
 import UsersServices from '@/services/UsersServices';
 import { login } from '@/store/slices/authSlice';
-import { useAppDispatch } from '@/store/hook';
-// import { editContentSlice } from '@/store/slices/editContentSlice';
 import { makeEditNick, makeEditDescription } from '@/store/slices/editContentSlice';
-
+import { EditProps } from 'interfaces/IAvatar';
 import styles from '@/componentsStyle/avatarStyles/AvatarContent.module.scss';
-
-// 2. Type
-interface EditProps {
-    id: string; 
-    activeNick?: boolean; 
-    activeDesc?: boolean; 
-    editNick?: any;
-    editDescription?: string | undefined;
-    modeEdit?: boolean;
-};
 
 const EditContent:FC <EditProps> = ({
     id,
@@ -27,11 +15,10 @@ const EditContent:FC <EditProps> = ({
     editDescription,
     modeEdit,
 }) => {
-
     const dispatch = useAppDispatch();
-
-    const handleChangeFile = async (editData: string) => {
-        
+    const editContentRef = useRef<HTMLDivElement>(null);
+    
+    const handleChangeFile = async (editData: string) => { 
         if (activeNick) {
             if (editData.length < 2) {
                 alert('Имя должно состоять из 2 или более символов');
@@ -67,15 +54,19 @@ const EditContent:FC <EditProps> = ({
                 console.warn(err);
             }
         }
-    } 
+    };
     
+ 
     return (
         <div 
+            ref={editContentRef}
             className={ !modeEdit ? styles.edit__overlay : styles.edit__overlay_active}
-            onClick={activeNick ? () => handleChangeFile(editNick) : () => handleChangeFile(editDescription)}
+            onClick={activeNick ? 
+                () => handleChangeFile(editNick) : activeDesc ? 
+                () => handleChangeFile(editDescription) : null
+            }
         />  
     )
-}
+};
 
-// // 3. Export
 export default EditContent;

@@ -1,7 +1,5 @@
-// 1. Imports
 import { FC } from 'react';
 
-// 2. Component
 const Footer: FC = () => {
     return (
         <footer>
@@ -12,8 +10,6 @@ const Footer: FC = () => {
             </div>
         </footer>
     )
-}
+};
 
-// 3. Export
 export  { Footer };
-

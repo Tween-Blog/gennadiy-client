@@ -1,14 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-import { IUser } from 'interfaces/IAuthService'
+import { IUser } from 'interfaces/IAuthService';
 
 type AuthState = {
-    user: IUser | {};
+    user: IUser | {postsCount: number};
     isAuth: boolean;
 }
 
 const initialState:AuthState = {
-    user: {},
+    user: {postsCount: 0},
     isAuth: false
 }
 
@@ -24,8 +23,11 @@ export const authSlice = createSlice({
             state.user = {},
             state.isAuth = false
         },
+        setPostsCount: (state, action: PayloadAction<number>) => {
+            state.user.postsCount += action.payload
+        }
     },
 })
 
-export const { login, logout } = authSlice.actions
-export default authSlice.reducer
+export const { login, logout, setPostsCount } = authSlice.actions;
+export default authSlice.reducer;

@@ -1,61 +1,75 @@
-// 1. Imports
 import { FC } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
+import { IUser } from 'interfaces/IAuthService';
 import style from '@/pagesStyle/Profile.module.scss';
 
-// 2. Type
-type StatisticsProps = {
-    user: object;
-};
+type StatisticsProps = {user: IUser };
 
-// 3. Component
 const UserStatistics:FC <StatisticsProps>= ({ 
     user, 
 }) => {
-    const post:number = user['postsCount'],
-          subscribers:number = user['subscribersCount'],
-          subscriptions:number = user['subscriptionsCount'];
-
-// Return         
+    const idUser:string = user.id;
+    const nickUser:string = user.nick;
+    const subscribers:number = user.subscribersCount;
+    const subscriptions:number = user.subscriptionsCount;
+      
+    const postsCountClick = () => {
+        const postsNode = document.getElementById('posts-list');
+        postsNode?.scrollIntoView({behavior: 'smooth'});
+    }
+ 
     return (
         <div className={style.panel}>
-
-            <div className={style.panel__item}>
-
+            <div className={style.panel__item}
+                onClick={postsCountClick}
+            >
                 <p className={style.panel__heading}>
-                    {post}
+                    {user.postsCount}
                 </p>
                 <p className={style.panel__designation}>
                     Публикаций
                 </p>
-
             </div>
-
-            <div className={style.panel__item}>
-
-                 <p className={style.panel__heading}>
-                    {subscribers}
-                </p>
-                <p className={style.panel__designation}>
-                    Подписчиков
-                </p>
-
-            </div>
-
-            <div className={style.panel__item}>
-
-                <p className={style.panel__heading}>
-                    {subscriptions}
-                </p>
-                <p className={style.panel__designation}>
-                    Подписок
-                </p>
-
-            </div>
-
+            <Link 
+                href={{
+                    pathname: '/users/subscribers', 
+                    query: {
+                        id: idUser, 
+                        nick: nickUser
+                    }}} 
+                    passHref
+                >
+                <div className={style.panel__item}>
+                    <p className={style.panel__heading}>
+                        {user.subscribersCount}
+                    </p>
+                    <p className={style.panel__designation}>
+                        Подписчиков
+                    </p>
+                </div>
+            </Link>  
+            <Link 
+                href={{
+                    pathname: '/users/subscriptions', 
+                    query: {
+                        id: idUser,
+                        nick: user.nick
+                    }}} 
+                    passHref
+                >
+                <div className={style.panel__item}>
+                    <p className={style.panel__heading}>
+                        {subscriptions}
+                    </p>
+                    <p className={style.panel__designation}>
+                        Подписок
+                    </p>
+                </div>
+            </Link>
         </div>
     )
-}
+};
 
-// 4. Export
 export { UserStatistics };

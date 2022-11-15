@@ -1,4 +1,3 @@
-// 1. Imports 
 import { forwardRef } from 'react';
 
 import { optionsTField } from '@/uiForm/optionsTField';
@@ -6,14 +5,12 @@ import { IFieldProps } from 'interfaces/IUi';
 
 import styles from '@/componentsStyle/formStyles/TextField.module.scss';
 
-// 2. Component
 const TextField = forwardRef<HTMLInputElement, IFieldProps>(
     ({  
         variety = 'text',
         otherClass = '',
         ...inputProps 
-    }, ref) => ( 
-        
+    }, ref) => (    
         <input 
             {...optionsTField[variety]}
             {...inputProps}
@@ -24,6 +21,5 @@ const TextField = forwardRef<HTMLInputElement, IFieldProps>(
     )
 );
 
-// 3. Export
 TextField.displayName = 'TextField';
 export { TextField };

@@ -11,8 +11,8 @@
 
 .avatar__blockImg {
     position: relative;
-    width: 99px;
-    height: 99px;
+    min-width: 99px;
+    min-height: 99px;
 }
 
 .avatar__blockImg:hover

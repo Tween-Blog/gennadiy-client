@@ -1,3 +1,5 @@
+@import 'styles/global/colors';
+
 .avatar__content {
     min-width: 170px;
     margin-left: 30px;   
@@ -8,9 +10,23 @@
     display: flex;
     align-items: center;
     &__value {
+        display: block;
+        max-width: 600px;
+        overflow: hidden;
+        white-space: nowrap;
         font: 600 24px 'Open Sans', sans-serif;
         color: #252525;
         cursor: pointer; 
+        caret-color: $themeColor;
+        &_width {
+            width: 264px;
+            text-overflow: ellipsis;
+        }
+    }
+    &:hover {
+        .edit {
+            opacity: 1;
+        } 
     }
 }
 
@@ -20,19 +36,35 @@
     margin-top: 3px;
     align-items: center;
     &__value {
+        display: block;
+        min-width: 15px;
+        max-width: 600px;
+        overflow: hidden;
+        white-space: nowrap;
         font: 400 14px 'Open Sans', sans-serif;
-        color: #7E7E7E; 
+        color: $greyColor; 
         cursor: pointer;
+        caret-color: $themeColor;
+        &_width {
+            width: 264px;
+            text-overflow: ellipsis;
+        }
     } 
+    &:hover {
+        .edit {
+            opacity: 1;
+        } 
+    }
 }
 
-.edit__overlay {
+.edit {
     display: inline-block;
     margin-right: auto;
     width: 21px;
     height: 21px;
     background:  url("/navigation/pencilSimple.svg") no-repeat center / cover;
-    margin-left: 10px;  
+    margin-left: 10px; 
+    opacity: 0; 
     cursor: pointer;
     &_active {
         display: inline-block;

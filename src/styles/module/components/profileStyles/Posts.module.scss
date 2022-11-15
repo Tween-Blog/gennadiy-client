@@ -1,0 +1,128 @@
+.postContent {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.postContent__img {
+    position: relative;
+    width: 285px;
+    height: 375px;
+    margin-right: 30px;
+    border-radius: 5px;
+}
+
+.post__img {
+    border-radius: 5px;
+}
+
+.postContent__description{
+    max-width: 580px;
+    width: 100%;
+    word-break:break-all;
+    margin-right: 30px;
+    border-bottom: 2px solid #E5E5E5;
+}
+
+.postContent__title {
+    color: #252525;
+    font: 600 28px "Open Sans", sans-serif;
+    margin-bottom: 6px;
+    width: 100%;
+    height: auto;
+    resize: none;
+    overflow: hidden;
+}
+
+.postContent__text {
+    font: 400 18px "Open Sans", sans-serif;
+    color: #7E7E7E;
+    width: 100%;
+    height: auto;
+    max-height: 245px;
+    resize: none;
+}
+
+.postContent__edit {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.editPost__imgEdit,
+.editPost_delete,
+.editPost_success {
+    display: inline-block;
+    margin-right: 10px;
+    width: 21px;
+    height: 21px;
+    background: url(/post/editPost.svg) no-repeat center/cover;
+    cursor: pointer;
+}
+
+.editPost__imgEdit_cancel {
+    background: url(/post/cancelPost.svg) no-repeat center/cover;
+}
+
+.editPost_delete {
+    background: url(/post/deletePost.svg) no-repeat center/cover;
+}
+
+.editPost_success {
+    background: url(/post/successPst.svg) no-repeat center/cover;
+}
+
+.edit,
+.delete {
+    display: flex;
+    align-items: center;
+}
+
+.edit:hover {
+    .editPost__text_edit {
+        color: #9C4EEE;
+    }
+    .editPost__imgEdit_edit {
+        background: url(/post/editPostActive.svg) no-repeat center/cover;
+    }  
+}
+
+.editPost__text {
+    color: #121212;
+    font: 400 16px "Open Sans", sans-serif;
+    cursor: pointer;
+}
+
+.edit {
+    margin-right: 12px;
+}
+
+.editPost__text_red {
+    color: #D02626;
+}
+
+.editPost__text_green {
+    color: green !important;
+}
+
+.postImg__overlay {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+	height: 375px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    opacity: 0;
+}
+
+.postImg__download {
+    width: 32px;
+    height: 32px;
+    background:  url("/navigation/navLogoutActive.svg") no-repeat center / cover;
+    transform: rotate(90deg);
+} 
+
+.postContent__img:hover
+.postImg__overlay {
+    opacity: 1;
+}

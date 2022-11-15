@@ -1,8 +1,9 @@
-// Imports
 import { configureStore } from '@reduxjs/toolkit';
 import authSlice from './slices/authSlice';
 import loaderSlice from './slices/loaderSlice';
 import editContentSlice from './slices/editContentSlice';
+import updatePostSlice from './slices/updatePostSlice';
+import commentsSlice from './slices/commentsSlice';
 
 // Store
 const store = configureStore({
@@ -10,6 +11,8 @@ const store = configureStore({
       auth: authSlice, 
       loader: loaderSlice,
       editContent: editContentSlice,
+      updatePost: updatePostSlice,
+      comments: commentsSlice,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({

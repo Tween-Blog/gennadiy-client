@@ -1,19 +1,14 @@
-// 1. Imports 
 import Image from 'next/image';
 import { forwardRef, useState } from 'react';
 
 import { IFieldProps }  from 'interfaces/IUi';
-
 import styles from '@/componentsStyle/formStyles/TextField.module.scss';
-  
-// 2. Component
+
 const PasswordField = forwardRef<HTMLInputElement, IFieldProps>(
-    ({ otherClass, ...inputProps }, ref) => { 
-        
+    ({ otherClass, ...inputProps }, ref) => {      
         const [isVisible, setIsVisible] = useState<boolean>(false);
         const inputType = isVisible ? 'text' : 'password';
 
-        // Return
         return (
             <div className={`${styles.inputWrapper} ${otherClass}`}>
                 <input 
@@ -38,6 +33,5 @@ const PasswordField = forwardRef<HTMLInputElement, IFieldProps>(
     }
 );
 
-// 3. Export
 PasswordField.displayName = 'PasswordField';
 export { PasswordField };
