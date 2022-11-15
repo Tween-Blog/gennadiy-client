@@ -8,7 +8,7 @@ import { logout } from '@/store/slices/authSlice';
 import { loader } from '@/store/slices/loaderSlice';
 
 import { INavigation } from 'interfaces/IUi';
-import styles from '@/componentsStyle/Navbar.module.scss';
+import styles from '@componentsStyle/Navbar.module.scss';
 
 const Navbar: FC = () => {
     const { pathname } = useRouter();

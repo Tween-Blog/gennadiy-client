@@ -11,7 +11,7 @@ import { MainButton } from '@/uiCommon';
 import { TextField } from '@/uiForm/TextField';
 import { PasswordField } from '@/uiForm/PasswordField';
 
-import styles from '@/componentsStyle/formStyles/SignupForm.module.scss';
+import styles from '@componentsStyle/formStyles/SignupForm.module.scss';
 
 const SignupForm: FC = () => {
     const router = useRouter();
