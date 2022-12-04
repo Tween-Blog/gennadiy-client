@@ -1,7 +1,7 @@
 const DEVELOPMENT_NEXT_API_URL: string = 'http://localhost:3000/api';
 const PRODUCTION_NEXT_API_URL: string = 'https://tween-client-gennadiy.vercel.app/api';
 
-const EXPRESS_URL: string = 'https://express-api-production-4149.up.railway.app';
+const EXPRESS_URL: string = 'https://express-api-production-2f1f.up.railway.app';
 
 const config =  {
     EXPRESS_API_URL: `${EXPRESS_URL}/api`,
