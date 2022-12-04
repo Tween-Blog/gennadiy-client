@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useAppSelector } from '@/store/hook';
 import Post from '@/uiGlobal/PostData/Post';
 
-
 import { IPost } from 'interfaces/IPosts';
 import style from '../../../../styles/module/components/profileStyles/Posts.module.scss';
 
