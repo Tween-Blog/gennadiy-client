@@ -30,7 +30,9 @@
       "@/store*": ["core/store*", "core/store"],
 
       "@/componentsStyle*": ["styles/module/components*", "styles/module/components"],
-      "@/pagesStyle*": ["styles/module/pages*", "styles/module/pages"]
+      "@/pagesStyle*": ["styles/module/pages*", "styles/module/pages"],
+
+      "@/config*": ["config.ts*", "config.ts"]
     },
     "jsx": "preserve"
   },

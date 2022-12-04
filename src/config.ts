@@ -6,7 +6,9 @@ const EXPRESS_URL: string = 'https://express-api-production-2f1f.up.railway.app'
 const config =  {
     EXPRESS_API_URL: `${EXPRESS_URL}/api`,
     NEXT_API_URL: process.env.NODE_ENV === 'production' ? PRODUCTION_NEXT_API_URL : DEVELOPMENT_NEXT_API_URL,
-    PREVIEW_URL: `${EXPRESS_URL}/preview.png`
+    PREVIEW_URL: `${EXPRESS_URL}/preview.png`,
+    AVATARS_URL: `${EXPRESS_URL}/avatars/`,
+    POSTS_URL: `${EXPRESS_URL}/posts/`
 }
 
 export default config;

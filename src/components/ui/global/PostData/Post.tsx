@@ -12,6 +12,8 @@ import { IPostProps } from 'interfaces/IPosts';
 import style from '../../../../styles/module/components/profileStyles/Posts.module.scss'
 import Swal from 'sweetalert2';
 
+import config from '@/config*';
+
 const Post:FC<IPostProps> = ({post}) => {
     const dispatch = useAppDispatch();
     const modeEdit = useAppSelector(state =>state.updatePost.modeEdit);
@@ -22,7 +24,7 @@ const Post:FC<IPostProps> = ({post}) => {
     if (modeEdit == post.id) edit = true;
 
     const [selectedFile, setSelectedFile] = useState<any>(null);
-    const [selectedImage, setSelectedImage] = useState<string>('https://tween-api.herokuapp.com/posts/' + post.picture),
+    const [selectedImage, setSelectedImage] = useState<string>(config.POSTS_URL + post.picture),
           [publicTitle, setPublicTitle] = useState<string>(post.title),
           [publicDesc, setPublicDesc] = useState<string>(post.description);
 
@@ -44,15 +46,11 @@ const Post:FC<IPostProps> = ({post}) => {
     };
 
     const handleEdit = () => {
-        // console.log(publicRef.current)
-        // setSelectedImage('https://tween-api.herokuapp.com/posts/' + post.picture);
-        // setPublicTitle(post.title);
-        // setPublicDesc(post.description);
         dispatch(modeEditPost(post.id))
     }
 
     const handleCancelEdit = () => {
-        setSelectedImage('https://tween-api.herokuapp.com/posts/' + post.picture);
+        setSelectedImage(config.POSTS_URL + post.picture);
         setPublicTitle(post.title);
         setPublicDesc(post.description);
         dispatch(cancelEdit());  
