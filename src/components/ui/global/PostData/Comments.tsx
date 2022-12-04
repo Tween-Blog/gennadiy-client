@@ -46,8 +46,8 @@ const Comments:FC<ICommentProps> = ({post}) => {
     return (
         <div className={style.comments}>
             <ul className={style.comments__item}>       
-                {
-                    comments?.map((comment) =>  
+                { comments  && 
+                    comments.map((comment) =>  
                         <li key={comment.id}>
                             <CommentItem 
                                 comment={comment}
@@ -55,6 +55,7 @@ const Comments:FC<ICommentProps> = ({post}) => {
                         </li> 
                     ) 
                 } 
+                { comments.length <= 0 && <div>Нет комментариев</div>}    
             </ul>
             <div className={style.comments__blockInfo}>
                 <BlockLike

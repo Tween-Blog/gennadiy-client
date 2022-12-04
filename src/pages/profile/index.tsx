@@ -29,7 +29,7 @@ const getPosts = async () => {
 useEffect(()  => {
     if(isAuth && user && !user.isActivated) {
       Swal.fire({
-        title: 'Ваш аккаунт не активирован!',
+        title: 'Вам на почту отправлена ссылка, для дальнейшей активации аккаунта!',
         icon: 'warning'
       });
     }

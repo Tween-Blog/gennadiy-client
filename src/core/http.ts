@@ -3,7 +3,8 @@ import config from 'config';
 import AuthService from './services/AuthServices';
 
 const apiUrl = config.NEXT_API_URL;
-const apiUrlGeneral = 'https://tween-api.herokuapp.com/api';
+// const apiUrlGeneral = 'https://tween-api.herokuapp.com/api';
+const apiUrlGeneral = config.EXPRESS_API_URL;
 
 // Api for authorization
 const api = axios.create({

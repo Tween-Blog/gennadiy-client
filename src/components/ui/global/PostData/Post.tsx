@@ -43,6 +43,14 @@ const Post:FC<IPostProps> = ({post}) => {
         }   
     };
 
+    const handleEdit = () => {
+        // console.log(publicRef.current)
+        // setSelectedImage('https://tween-api.herokuapp.com/posts/' + post.picture);
+        // setPublicTitle(post.title);
+        // setPublicDesc(post.description);
+        dispatch(modeEditPost(post.id))
+    }
+
     const handleCancelEdit = () => {
         setSelectedImage('https://tween-api.herokuapp.com/posts/' + post.picture);
         setPublicTitle(post.title);
@@ -145,7 +153,7 @@ const Post:FC<IPostProps> = ({post}) => {
                 />  
                 <div className={style.postContent__edit}>
                     <div className={style.edit}
-                         onClick={ edit ? handleCancelEdit : () => dispatch(modeEditPost(post.id))}
+                         onClick={ edit ? handleCancelEdit : handleEdit}
                     >
                         <div className={
                             !edit ? `${style.editPost__imgEdit} ${style.editPost__imgEdit_edit}` :
