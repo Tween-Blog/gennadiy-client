@@ -8,10 +8,12 @@ import { useCheckLike } from '@/helpers/hook/useCheckLike';
 import { useAppSelector } from '@/store/hook';
 import { IUser } from 'interfaces/IAuthService';
 
+import config from '@/config*';
+
 const PostItem:FC<IPostProps> = ({post}) => {
     const isAuth = useAppSelector(state => state.auth.isAuth);
     const user: IUser = useAppSelector(state => state.auth.user);
-    const image:string = 'https://tween-api.herokuapp.com/posts/' + post.picture;
+    const image:string = config.POSTS_URL + post.picture;
 
     const [isLike, setIsLike] = useState<boolean>(false);
     const postHeightTitle = post.title.split(/\r\n|\r|\n/).length;

@@ -8,6 +8,8 @@ import UserService from '@/services/UsersServices';
 import { IComment } from 'interfaces/IPosts';
 import style from '../../../../styles/module/components/profileStyles/Comments.module.scss';
 
+import config from '@/config*';
+
 const CommentItem:FC<any> = ( {comment} ) => {
     const isAuth = useAppSelector(state => state.auth.isAuth);
     const [user, setUser] = useState<IUser>({});
@@ -34,8 +36,8 @@ const CommentItem:FC<any> = ( {comment} ) => {
             <div className={style.comments__card}>
                 <div className={style.comments__avatar}>
                     <Image 
-                        src={'https://tween-api.herokuapp.com/avatars/' + user.avatar}
-                        blurDataURL={'https://tween-api.herokuapp.com/avatars/' + user.avatar}
+                        src={config.AVATARS_URL + user.avatar}
+                        blurDataURL={config.AVATARS_URL + user.avatar}
                         placeholder="empty"
                         alt="avatar"
                         width={40}

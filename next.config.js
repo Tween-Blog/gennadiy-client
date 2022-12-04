@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
-images: { domains: ['tween-api.herokuapp.com'] },
+images: { domains: ['express-api-production-2f1f.up.railway.app'] },
   
 webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
     config.resolve.alias = {

@@ -8,6 +8,8 @@ import AvatarContent from '@/uiGlobal/Avatar/AvatarContent';
 
 import style from '../../../../styles/module/components/avatarStyles/Avatar.module.scss';
 
+import config from '@/config'
+
 type AvatarProps = {
     user: IUser;
     isLink?: boolean;
@@ -30,8 +32,8 @@ const Avatar:FC <AvatarProps>= ({
         <div className={style.avatar}>
             <div className={style.avatar__blockImg}>
                 <Image 
-                    src={'https://tween-api.herokuapp.com/avatars/' + avatar}
-                    blurDataURL={'https://tween-api.herokuapp.com/avatars/' + avatar}
+                    src={config.AVATARS_URL + avatar}
+                    blurDataURL={config.AVATARS_URL + avatar}
                     placeholder="empty"
                     alt="avatar"
                     layout="fill"
