@@ -1,5 +1,5 @@
 const DEVELOPMENT_NEXT_API_URL: string = 'http://localhost:3000/api';
-const PRODUCTION_NEXT_API_URL: string = 'https://tween-blog.online/api';
+const PRODUCTION_NEXT_API_URL: string = 'https://www.tween-blog.online/api';
 
 const EXPRESS_URL: string = 'https://api.tween-blog.online';
 
